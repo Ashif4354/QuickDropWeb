@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickDrop Web</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <h1>QuickDrop Web</h1>
+
+        <div class="neu-box" id="main-panel">
+            <!-- State 1: Dropzone -->
+            <div id="dropzone" class="dropzone">
+                <div class="icon-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <p class="instructions">Drag & Drop Payload Here</p>
+                <input type="file" id="file-input" hidden>
+            </div>
+
+            <!-- State 2: Progress -->
+            <div id="progress-container" class="progress-container">
+                <p class="instructions">Uploading...</p>
+                <div class="progress-bar-track">
+                    <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- State 3: Ready (QR) -->
+            <div id="result-container" class="result-container">
+                <div class="qr-frame">
+                    <img id="qr-image" src="" alt="Scan QR Code">
+                </div>
+                <div class="url-display" id="url-text">http://...</div>
+                <p class="expiry-text">Scan to Retrieve. Link expires after one use.</p>
+            </div>
+
+            <!-- State 4: Destructed -->
+            <div id="destructed-container" class="destructed-container">
+                <div class="destruct-icon">
+                    💥
+                </div>
+                <h2>Self-Destructed</h2>
+                <p class="instructions">The file has been retrieved and deleted.</p>
+                <button class="btn" id="reset-btn">Drop Another File</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
